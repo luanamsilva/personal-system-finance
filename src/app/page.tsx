@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <main>
 <Header/>
-<Transactions/>
+<Transactions list={filterdList}/>
     </main>
   )
 }

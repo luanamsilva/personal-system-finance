@@ -17,3 +17,10 @@ export const filteredListByMonth = (list:ItemTypes[], date: string):ItemTypes[] 
 
   return newList
   }
+
+  export const dateFormated =(date: Date):string =>{
+let year = date.getFullYear()
+let month = date.getMonth()+1
+let day = date.getDay()
+return `${day}/${month}/${year}`
+  } 

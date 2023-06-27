@@ -1,4 +1,10 @@
-export const Transactions = ()=>{
+import { dateFormated } from "../helpers/dataFilter"
+import { ItemTypes } from "../types/ItemTypes"
+
+type Props = {
+  list: ItemTypes[]
+}
+export const Transactions = ({list}:Props)=>{
   return(
     <div className="overflow-x-auto">
     <table className="text-white w-full">
@@ -12,7 +18,16 @@ export const Transactions = ()=>{
       </thead>
 
       <tbody>
-        
+        {list.map((listItem, index)=>(
+          <tr key={index}>
+            <td>{dateFormated(listItem.date)}</td>
+                <td>
+          {listItem.title}
+            </td>
+            <td>{listItem.category}</td>
+            <td>R$ {listItem.value}</td>
+          </tr>
+        ))}
       </tbody>
     </table>
     </div>
