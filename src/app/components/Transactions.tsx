@@ -1,3 +1,4 @@
+import { categories } from "../data/Categories"
 import { dateFormated } from "../helpers/dataFilter"
 import { ItemTypes } from "../types/ItemTypes"
 
@@ -18,14 +19,17 @@ export const Transactions = ({list}:Props)=>{
       </thead>
 
       <tbody>
-        {list.map((listItem, index)=>(
-          <tr key={index}>
+        {list.map((listItem)=>(
+          <tr key={listItem.id}>
             <td>{dateFormated(listItem.date)}</td>
                 <td>
           {listItem.title}
             </td>
-            <td>{listItem.category}</td>
-            <td>R$ {listItem.value}</td>
+            <td>{categories[listItem.category].title}</td>
+            {categories[listItem.category].expense ? 
+            <td className="text-red-600">R$ {listItem.value}</td> :
+            <td className="text-green-600">R$ {listItem.value}</td>} 
+            
           </tr>
         ))}
       </tbody>
