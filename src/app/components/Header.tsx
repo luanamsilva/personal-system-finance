@@ -30,16 +30,20 @@ export const Header = ({list}:Props) => {
   return (
     <div className="flex flex-col justify-center bg-black w-full">
     <div className="text-white text-center text-2xl p-5">Sistema Financeiro</div>
-    <div className="flex text-white gap-28 pb-8 my-8 justify-center">
-    <div>Receitas 
-    <p>R$ {incomeTotal.toFixed(2)}</p>
+    
+    <div className="flex flex-col w-4/5 sm:flex-row text-white gap-4 sm:gap-28 pb-8 my-8 justify-between mx-auto">
+      <div className="bg-green-900 p-3 rounded-md sm:w-1/3 text-center">
+        Receitas 
+        <p className="sm:text-lg">R$ {incomeTotal.toFixed(2)}</p>
+      </div>
+      <div className="bg-red-900 p-3 rounded-md sm:w-1/2 md:w-1/3 text-center">
+        Despesas
+        <p className="sm:text-lg md:text-xl"> R$ {expenseTotal.toFixed(2)}</p>
+      </div>
+      <div className="bg-gray-900 p-3 rounded-md sm:w-1/2 md:w-1/3 text-center">
+        Saldo
+        <p className="text-lg">R$ {balance.toFixed(2)}</p>
+      </div>
     </div>
-    <div>Despesas
-    <p> R$ {expenseTotal.toFixed(2)}</p>
-    </div>
-    <div>Saldo
-      <p>R${balance.toFixed(2)}</p>
-    </div>
-    </div>
- </div> )
+  </div> )
 }
