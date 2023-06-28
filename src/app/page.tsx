@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <main>
-<Header/>
+<Header list={filterdList}/>
 <Transactions list={filterdList}/>
     </main>
   )
