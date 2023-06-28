@@ -8,6 +8,7 @@ type Props = {
 export const Header = ({list}:Props) => {
   const [expenseTotal, setExpenseTotal] = useState(0);
   const [incomeTotal, setIncomeTotal] = useState(0);
+  const [balance, setBalance] = useState(0)
 
   useEffect(() => {
     let expenseSum = 0;
@@ -20,10 +21,11 @@ export const Header = ({list}:Props) => {
       } else {
         incomeSum += item.value;
       }   })
-
+      const calculatedBalance = incomeSum - expenseSum;
 
     setExpenseTotal(expenseSum);
     setIncomeTotal(incomeSum);
+    setBalance(calculatedBalance)
   }, [list]);
   return (
     <div className="flex flex-col justify-center bg-black w-full">
@@ -35,7 +37,9 @@ export const Header = ({list}:Props) => {
     <div>Despesas
     <p> R$ {expenseTotal.toFixed(2)}</p>
     </div>
-    <div>Saldo</div>
+    <div>Saldo
+      <p>R${balance.toFixed(2)}</p>
+    </div>
     </div>
  </div> )
 }
