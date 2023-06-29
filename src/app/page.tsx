@@ -5,6 +5,7 @@ import {itemsData} from "@component/app/data/itemsData"
 import { getCurrentMonth, filteredListByMonth } from "./helpers/dataFilter"
 import { ItemTypes } from "./types/ItemTypes"
 import {Transactions} from "@component/app/components/Transactions"
+import CurrentMonth from "./components/CurrentMonth"
 
 export default function Home() {
 
@@ -15,10 +16,14 @@ export default function Home() {
   useEffect(()=>{
   setFilteredList(filteredListByMonth(list, currentMonth)  )   
   },[list, currentMonth])
+const onMonthChange = (newMonth: string)=>{
+  setCurrentMonth(newMonth)
+}
 
   return (
     <main>
 <Header list={filterdList}/>
+<CurrentMonth onMonthChange={onMonthChange} currentMonth={currentMonth}/>
 <Transactions list={filterdList}/>
     </main>
   )

@@ -2,6 +2,7 @@
 import { ItemTypes } from "../types/ItemTypes"
 import { categories } from "../data/Categories"
 import { useEffect, useState } from "react";
+
 type Props = {
     list: ItemTypes[]
   }
@@ -32,6 +33,7 @@ export const Header = ({list}:Props) => {
     <div className="text-white text-center text-2xl p-5">Sistema Financeiro</div>
     
     <div className="flex flex-col w-4/5 sm:flex-row text-white gap-4 sm:gap-28 pb-8 my-8 justify-between mx-auto">
+  
       <div className="bg-green-900 p-3 rounded-md sm:w-1/3 text-center">
         Receitas 
         <p className="sm:text-lg">R$ {incomeTotal.toFixed(2)}</p>
@@ -42,7 +44,10 @@ export const Header = ({list}:Props) => {
       </div>
       <div className="bg-gray-900 p-3 rounded-md sm:w-1/2 md:w-1/3 text-center">
         Saldo
-        <p className="text-lg">R$ {balance.toFixed(2)}</p>
+        <p className={`text-lg ${balance < 0 ? 'text-red-700' : 'text-green-700'}`}>
+    R$ {balance.toFixed(2)}
+  </p>
+       
       </div>
     </div>
   </div> )
