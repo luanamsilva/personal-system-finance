@@ -1,3 +1,4 @@
+
 import { categories } from "../data/Categories"
 import { dateFormated } from "../helpers/dataFilter"
 import { ItemTypes } from "../types/ItemTypes"
@@ -19,16 +20,16 @@ export const Transactions = ({list}:Props)=>{
       </thead>
 
       <tbody className=" bg-zinc-900 text-gray-100">
-        {list.map((listItem)=>(
-          <tr key={listItem.id}>
-            <td className="px-2 py-1.5 text-center border border-zinc-900">{dateFormated(listItem.date)}</td>
+        {list.map((item)=>(
+          <tr key={item.id}>
+            <td className="px-2 py-1.5 text-center border border-zinc-900">{dateFormated(item.date)}</td>
                 <td className="px-1 py-1 text-center border border-zinc-900">
-          {listItem.title}
+          {item.title}
             </td>
-            <td className="px-2 py-1.5 text-center border border-zinc-900">{categories[listItem.category].title}</td>
-            {categories[listItem.category].expense ? 
-            <td className="text-red-600 px-2 py-1.5 text-center border border-zinc-900">R$ {listItem.value.toFixed(2)}</td> :
-            <td className="text-green-600 px-2 py-1.5 text-center border border-zinc-900">R$ {listItem.value.toFixed(2)}</td>} 
+            <td className="px-2 py-1.5 text-center border border-zinc-900">{categories[item.category].title}</td>
+            {categories[item.category].expense ? 
+            <td className="text-red-600 px-2 py-1.5 text-center border border-zinc-900">R$ {item.value.toFixed(2)}</td> :
+            <td className="text-green-600 px-2 py-1.5 text-center border border-zinc-900">R$ {item.value.toFixed(2)}</td>} 
             
           </tr>
         ))}
