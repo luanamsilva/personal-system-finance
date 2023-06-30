@@ -30,8 +30,7 @@ export const Header = ({list}:Props) => {
   }, [list]);
   return (
     <div className="flex flex-col justify-center w-full">
-    <div className="text-white text-center text-2xl p-5">Sistema Financeiro</div>
-    
+      <h1 className="text-gray-300 text-center text-2xl p-5">Sistema Financeiro</h1>    
     <div className="flex flex-col w-4/5 sm:flex-row text-white gap-4 sm:gap-28 pb-8 my-8 justify-between mx-auto">
   
       <div className="bg-green-900 p-3 rounded-md sm:w-1/3 text-center">
