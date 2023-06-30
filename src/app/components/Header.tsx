@@ -29,7 +29,7 @@ export const Header = ({list}:Props) => {
     setBalance(calculatedBalance)
   }, [list]);
   return (
-    <div className="flex flex-col justify-center bg-black w-full">
+    <div className="flex flex-col justify-center w-full">
     <div className="text-white text-center text-2xl p-5">Sistema Financeiro</div>
     
     <div className="flex flex-col w-4/5 sm:flex-row text-white gap-4 sm:gap-28 pb-8 my-8 justify-between mx-auto">

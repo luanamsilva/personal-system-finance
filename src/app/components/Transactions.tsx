@@ -8,27 +8,27 @@ type Props = {
 export const Transactions = ({list}:Props)=>{
   return(
     <div className="overflow-x-auto">
-    <table className="text-white w-full bg-zinc-950">
+    <table className="text-white w-full border-separate" style={{ borderSpacing: '0px 10px' }}>
       <thead>
-        <tr className="text-white w-full bg-zinc-950">
-          <th className="px-2 whitespace-nowrap">Data</th>
-          <th className="px-2 whitespace-nowrap">Descrição</th>
-         <th className="px-2 whitespace-nowrap">Categoria</th> 
-         <th className="px-2 whitespace-nowrap"> valor</th>
+        <tr className="text-gray-200 w-full bg-neutral-900 border-gray-600">
+          <th className="px-2 py-1 whitespace-nowrap">Data</th>
+          <th className="px-2 py-1 whitespace-nowrap">Descrição</th>
+         <th className="px-2 py-1 whitespace-nowrap">Categoria</th> 
+         <th className="px-2 py-1 whitespace-nowrap"> valor</th>
         </tr>
       </thead>
 
-      <tbody>
+      <tbody className=" bg-zinc-900 text-gray-100">
         {list.map((listItem)=>(
           <tr key={listItem.id}>
-            <td className="px-2 py-1 text-center">{dateFormated(listItem.date)}</td>
-                <td className="px-2 py-1 text-center">
+            <td className="px-2 py-1 text-center border border-zinc-900">{dateFormated(listItem.date)}</td>
+                <td className="px-1 py-1 text-center border border-zinc-900">
           {listItem.title}
             </td>
-            <td className="px-2 py-1 text-center">{categories[listItem.category].title}</td>
+            <td className="px-2 py-1 text-center border border-zinc-900">{categories[listItem.category].title}</td>
             {categories[listItem.category].expense ? 
-            <td className="text-red-600 px-2 py-1 text-center">R$ {listItem.value.toFixed(2)}</td> :
-            <td className="text-green-600 px-2 py-1 text-center">R$ {listItem.value.toFixed(2)}</td>} 
+            <td className="text-red-600 px-2 py-1 text-center border border-zinc-900">R$ {listItem.value.toFixed(2)}</td> :
+            <td className="text-green-600 px-2 py-1 text-center border border-zinc-900">R$ {listItem.value.toFixed(2)}</td>} 
             
           </tr>
         ))}

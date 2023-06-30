@@ -7,6 +7,7 @@ import { ItemTypes } from "./types/ItemTypes"
 import {Transactions} from "@component/app/components/Transactions"
 import CurrentMonth from "./components/CurrentMonth"
 
+
 export default function Home() {
 
   const [list,setList]= useState(itemsData)
@@ -23,6 +24,7 @@ const onMonthChange = (newMonth: string)=>{
   return (
     <main>
 <Header list={filterdList}/>
+
 <CurrentMonth onMonthChange={onMonthChange} currentMonth={currentMonth}/>
 <Transactions list={filterdList}/>
     </main>
